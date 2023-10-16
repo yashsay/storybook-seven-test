@@ -1,4 +1,5 @@
 import { Button } from './Button';
+import { ReactComponent as InfoIcon } from "../../assets/info.svg";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -12,34 +13,56 @@ export default {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    variant: { options: ["primary", "secondary", "tertiary"] },
+    size: { options: ["lg", "md", "sm", "xs"] },
+    iconPosition: { options: ["left", "right"] }
   },
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary = {
   args: {
-    primary: true,
-    label: 'Button',
+    label: 'Primary',
+    variant: 'primary'
   },
 };
 
 export const Secondary = {
   args: {
-    label: 'Button',
+    label: 'Secondary',
+    variant: 'secondary'
   },
 };
 
-export const Large = {
+export const Tertiary = {
   args: {
-    size: 'large',
-    label: 'Button',
+    label: 'Tertiary',
+    variant: 'tertiary'
   },
 };
 
-export const Small = {
+export const ButtonWithIcon = {
   args: {
-    size: 'small',
-    label: 'Button',
+    label: 'Button With Icon',
+    variant: 'primary',
+    icon: <InfoIcon />
+  },
+};
+
+export const IconButton = {
+  args: {
+    label: 'Icon Button',
+    variant: 'primary',
+    iconButton: true,
+    textButton: false,
+  },
+};
+
+export const TextButton = {
+  args: {
+    label: 'Text Button',
+    variant: 'primary',
+    textButton: true,
+    iconButton: false,
   },
 };

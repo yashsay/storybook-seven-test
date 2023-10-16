@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:ital,wght@0,400;1,400&display=swap");
+
+
+/** 
+* Base Styles for Button Component
+*/
+.baseStyles {
+    // layout
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    // typography
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.48px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/**
+* primary variant
+*/
+.primary {
+    // style
+    border: none;
+    background: var(--primary-blue-1-cta-default, #007CC1);
+    color: var(--background-white-base-bkg-texts, #FFF);
+}
+
+/**
+* secondary variant
+*/
+.secondary {
+    // style
+    border: 2px solid var(--cta-blue-1-default, #007CC1);
+    background: var(--background-white-base-bkg-texts, #FFF);
+    color: var(--primary-blue-1-cta-default, #007CC1);
+}
+
+/**
+* tertiary variant
+*/
+.tertiary {
+    // style
+    border: none;
+    background: none;
+    color: var(--primary-blue-1-cta-default, #007CC1);
+}
+
+/**
+* extra-small size "xs"
+*/
+.xs {
+    min-height: 20px;
+    min-width: 48px;
+    font-size: 10px;
+    padding: 3px 12px;
+    border-radius: 4px;
+}
+
+/**
+* small size "sm"
+*/
+.sm {
+    min-height: 26px;
+    min-width: 64px;
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 5px;
+}
+
+/**
+* medium size "md"
+*/
+.md {
+    min-height: 32px;
+    min-width: 81px;
+    font-size: 14px;
+    padding: 7px 16px;
+    border-radius: 6px;
+}
+
+/**
+* large size "lg"
+*/
+.lg {
+    min-height: 38px;
+    min-width: 96px;
+    font-size: 16px;
+    padding: 9px 18px;
+    border-radius: 7px;
+}
+
+/** 
+* hover state
+*/
+.primary:hover {
+    background: var(--cta-blue-2-hover-state, #00669E);
+}
+
+.secondary:hover {
+    border: 3px solid var(--cta-blue-3-pressed, #005483);
+    background: var(--cta-cool-grey-3-disabled, #F2F6FA);
+}
+
+/** 
+* pressed state
+*/
+.primary:active {
+    background: var(--cta-blue-3-pressed, #005483);
+}
+
+.secondary:active {
+    border: 3px solid var(--cta-blue-3-pressed, #005483);
+    background: var(--uicool-practice-cool-gray-2, #E5E8EA);
+}
+
+/** 
+* disabled state
+*/
+.primary:disabled {
+    background: var(--cta-disabled-button-background, #F2F6FA);
+    color: var(--cta-disabled-button-text, #79B9DE);
+}
+
+.secondary:disabled {
+    border: 2px solid var(--cta-disabled-button-text, #79B9DE);
+    background: var(--background-white-base-bkg-texts, #FFF);
+    color: var(--cta-disabled-button-text, #79B9DE);
+}
+
+.tertiary:disabled {
+    color: var(--cta-disabled-button-text, #79B9DE);
+}
+
+/** 
+* Icon styles
+*/
