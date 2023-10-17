@@ -15,7 +15,9 @@ export default {
   argTypes: {
     variant: { options: ["primary", "secondary", "tertiary"] },
     size: { options: ["lg", "md", "sm", "xs"] },
-    iconPosition: { options: ["left", "right"] }
+    iconPosition: { options: ["left", "right"] },
+    // icon: { control: { type: 'file', accept: '.svg' } },
+    // icon: { control: 'text' },
   },
 };
 
@@ -41,11 +43,30 @@ export const Tertiary = {
   },
 };
 
-export const ButtonWithIcon = {
+export const PrimaryButtonWithIcon = {
   args: {
-    label: 'Button With Icon',
+    label: 'Primary Icon',
     variant: 'primary',
-    icon: <InfoIcon />
+    icon: <InfoIcon />,
+    // disabled: true
+  },
+};
+
+export const SecondaryButtonWithIcon = {
+  args: {
+    label: 'Secondary Icon',
+    variant: 'secondary',
+    icon: <InfoIcon />,
+    // disabled: true
+  },
+};
+
+export const TertiaryButtonWithIcon = {
+  args: {
+    label: 'Tertiary Icon',
+    variant: 'tertiary',
+    icon: <InfoIcon />,
+    // disabled: true
   },
 };
 
@@ -55,6 +76,7 @@ export const IconButton = {
     variant: 'primary',
     iconButton: true,
     textButton: false,
+    icon: <InfoIcon />,
   },
 };
 

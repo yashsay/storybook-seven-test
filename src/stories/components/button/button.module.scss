@@ -1,141 +1,145 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:ital,wght@0,400;1,400&display=swap");
 
-
-/** 
-* Base Styles for Button Component
-*/
+// Base Styles for Button Component
 .baseStyles {
-    // layout
+    // Layout
     display: inline-flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    // typography
-    font-family: "Nunito";
-    font-style: normal;
+
+    // Typography
+    font-family: "Nunito", sans-serif;
     font-weight: 600;
     line-height: 20px;
     letter-spacing: 0.48px;
     text-align: center;
     text-transform: uppercase;
-}
 
-/**
-* primary variant
-*/
-.primary {
-    // style
-    border: none;
-    background: var(--primary-blue-1-cta-default, #007CC1);
-    color: var(--background-white-base-bkg-texts, #FFF);
-}
+    &.xs {
+        height: 20px;
+        min-width: 48px;
+        font-size: 10px;
+        padding: 3px 12px;
+        border-radius: 4px;
+    }
 
-/**
-* secondary variant
-*/
-.secondary {
-    // style
-    border: 2px solid var(--cta-blue-1-default, #007CC1);
-    background: var(--background-white-base-bkg-texts, #FFF);
-    color: var(--primary-blue-1-cta-default, #007CC1);
-}
+    &.xsIconButton {
+        height: 20px;
+        width: 20px;
+        border-radius: 5px;
+    }
 
-/**
-* tertiary variant
-*/
-.tertiary {
-    // style
-    border: none;
-    background: none;
-    color: var(--primary-blue-1-cta-default, #007CC1);
-}
+    &.sm {
+        height: 26px;
+        min-width: 64px;
+        font-size: 12px;
+        padding: 5px 14px;
+        border-radius: 5px;
+    }
 
-/**
-* extra-small size "xs"
-*/
-.xs {
-    min-height: 20px;
-    min-width: 48px;
-    font-size: 10px;
-    padding: 3px 12px;
-    border-radius: 4px;
-}
+    &.smIconButton {
+        height: 26px;
+        width: 26px;
+        border-radius: 5px;
+    }
 
-/**
-* small size "sm"
-*/
-.sm {
-    min-height: 26px;
-    min-width: 64px;
-    font-size: 12px;
-    padding: 5px 14px;
-    border-radius: 5px;
-}
+    &.md {
+        height: 32px;
+        min-width: 81px;
+        font-size: 14px;
+        padding: 7px 16px;
+        border-radius: 6px;
+    }
 
-/**
-* medium size "md"
-*/
-.md {
-    min-height: 32px;
-    min-width: 81px;
-    font-size: 14px;
-    padding: 7px 16px;
-    border-radius: 6px;
-}
+    &.mdIconButton {
+        height: 32px;
+        width: 32px;
+        border-radius: 6px;
+    }
 
-/**
-* large size "lg"
-*/
-.lg {
-    min-height: 38px;
-    min-width: 96px;
-    font-size: 16px;
-    padding: 9px 18px;
-    border-radius: 7px;
-}
+    &.lg {
+        height: 38px;
+        min-width: 96px;
+        font-size: 16px;
+        padding: 9px 18px;
+        border-radius: 7px;
+    }
 
-/** 
-* hover state
-*/
-.primary:hover {
-    background: var(--cta-blue-2-hover-state, #00669E);
-}
+    &.lgIconButton {
+        height: 38px;
+        width: 38px;
+        border-radius: 7px;
+    }
 
-.secondary:hover {
-    border: 3px solid var(--cta-blue-3-pressed, #005483);
-    background: var(--cta-cool-grey-3-disabled, #F2F6FA);
-}
+    // Icon styles
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-/** 
-* pressed state
-*/
-.primary:active {
-    background: var(--cta-blue-3-pressed, #005483);
-}
+        svg {
+            path {
+                fill: currentColor;
+            }
+        }
+    }
 
-.secondary:active {
-    border: 3px solid var(--cta-blue-3-pressed, #005483);
-    background: var(--uicool-practice-cool-gray-2, #E5E8EA);
-}
+    // Primary variant
+    &.primary {
+        border: none;
+        background: var(--primary-blue-1-cta-default, #007CC1);
+        color: var(--background-white-base-bkg-texts, #FFF);
 
-/** 
-* disabled state
-*/
-.primary:disabled {
-    background: var(--cta-disabled-button-background, #F2F6FA);
-    color: var(--cta-disabled-button-text, #79B9DE);
-}
+        &:hover {
+            background: var(--cta-blue-2-hover-state, #00669E);
+        }
 
-.secondary:disabled {
-    border: 2px solid var(--cta-disabled-button-text, #79B9DE);
-    background: var(--background-white-base-bkg-texts, #FFF);
-    color: var(--cta-disabled-button-text, #79B9DE);
-}
+        &:active {
+            background: var(--cta-blue-3-pressed, #005483);
+        }
 
-.tertiary:disabled {
-    color: var(--cta-disabled-button-text, #79B9DE);
-}
+        &:disabled {
+            background: var(--cta-disabled-button-background, #F2F6FA);
+            color: var(--cta-disabled-button-text, #79B9DE);
+        }
+    }
 
-/** 
-* Icon styles
-*/
+    // Secondary variant
+    &.secondary {
+        border: 2px solid var(--cta-blue-1-default, #007CC1);
+        background: var(--background-white-base-bkg-texts, #FFF);
+        color: var(--primary-blue-1-cta-default, #007CC1);
+
+        &:hover {
+            border: 3px solid var(--cta-blue-3-pressed, #005483);
+            background: var(--cta-cool-grey-3-disabled, #F2F6FA);
+        }
+
+        &:active {
+            border: 3px solid var(--cta-blue-3-pressed, #005483);
+            background: var(--uicool-practice-cool-gray-2, #E5E8EA);
+        }
+
+        &:disabled {
+            border: 2px solid var(--cta-disabled-button-text, #79B9DE);
+            background: var(--background-white-base-bkg-texts, #FFF);
+            color: var(--cta-disabled-button-text, #79B9DE);
+        }
+    }
+
+    // Tertiary variant
+    &.tertiary {
+        border: none;
+        background: none;
+        color: var(--primary-blue-1-cta-default, #007CC1);
+
+        &:disabled {
+            color: var(--cta-disabled-button-text, #79B9DE);
+        }
+    }
+
+    &.iconButton {
+        min-width: 0px;
+    }
+}

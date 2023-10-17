@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./button.module.scss";
+
+import { ReactComponent as InfoIcon } from "../../assets/info.svg";
 
 /**
  * Button Component for UI interaction.
@@ -21,14 +23,20 @@ export const Button = ({
     <button
       type="button"
       disabled={disabled}
-      className={`${styles.baseStyles} ${styles[variant]} ${styles[size]}`}
+      className={`${styles.baseStyles} ${styles[variant]} ${
+        iconButton ? styles[`${size}IconButton`] : styles[size]
+      }`}
       {...props}
     >
-      {icon && iconPosition === "left" && (
+      {!iconButton && icon && iconPosition === "left" && (
         <span className={styles.icon}>{icon}</span>
       )}
-      {iconButton ? null : children || label}
-      {icon && iconPosition === "right" && (
+      {iconButton ? (
+        <span className={styles.icon}>{icon}</span>
+      ) : (
+        children || label
+      )}
+      {!iconButton && icon && iconPosition === "right" && (
         <span className={styles.icon}>{icon}</span>
       )}
     </button>
@@ -82,6 +90,7 @@ Button.defaultProps = {
   size: "sm",
   disabled: false,
   icon: null,
+  // icon: <InfoIcon />,
   iconPosition: "left",
   iconButton: false,
   textButton: false,
