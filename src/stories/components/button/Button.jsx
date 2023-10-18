@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./button.module.scss";
 
 import { ReactComponent as InfoIcon } from "../../assets/info.svg";
+import { ReactComponent as CheckIcon } from "../../assets/check.svg";
+
+const LOADER_STATES = {
+  IDLE: "IDLE",
+  LOADING: "LOADING",
+  COMPLETE: "COMPLETE",
+};
 
 /**
  * Button Component for UI interaction.
@@ -17,10 +24,22 @@ export const Button = ({
   iconButton,
   textButton,
   textButtonUnderlined,
+  buttonWithLoader,
+  loaderLabel,
+  completedLabel,
+  completedIcon,
+  isLoading,
   children,
   ...props
 }) => {
-  console.log("Element::", document.getElementsByClassName("iconSvg"));
+  const loaderState = useState(LOADER_STATES.IDLE);
+
+  /* useEffect(() => {
+    if (buttonWithLoader) {
+      isLoading
+    }
+  }, [isLoading]); */
+
   return (
     <button
       type="button"
@@ -45,8 +64,10 @@ export const Button = ({
         <span className={styles.icon}>
           {React.cloneElement(icon, { className: "iconSvg" })}
         </span>
+      ) : children || (buttonWithLoader && isLoading) ? (
+        `${loaderLabel}...`
       ) : (
-        children || label
+        label
       )}
       {!iconButton && icon && iconPosition === "right" && (
         <span className={styles.icon}>
@@ -79,7 +100,7 @@ Button.propTypes = {
   /**
    * Icon to display on button. Any SVG element/component can be passed as an icon.
    */
-  icon: PropTypes.element,
+  icon: PropTypes.node,
   /**
    * Position of Icon.
    */
@@ -97,6 +118,26 @@ Button.propTypes = {
    */
   textButtonUnderlined: PropTypes.bool,
   /**
+   * Indicates whether a loader should be displayed inside the button. Progress Type Button.
+   */
+  buttonWithLoader: PropTypes.bool,
+  /**
+   * The label to display on the loader when `buttonWithLoader` is true.
+   */
+  loaderLabel: PropTypes.string,
+  /**
+   * The label to display on the completed state of loader when `buttonWithLoader` is true.
+   */
+  completedLabel: PropTypes.string,
+  /**
+   * The icon to display on the completed state of loader when `buttonWithLoader` is true.
+   */
+  completedIcon: PropTypes.node,
+  /**
+   * The loading state of loader when `buttonWithLoader` is true.
+   */
+  isLoading: PropTypes.bool,
+  /**
    * Children can be used to provide custom content.
    */
   children: PropTypes.node,
@@ -113,4 +154,9 @@ Button.defaultProps = {
   iconButton: false,
   textButton: false,
   textButtonUnderlined: false,
+  buttonWithLoader: false,
+  loaderLabel: "Progressing",
+  completedLabel: "Complete",
+  completedIcon: <CheckIcon />,
+  isLoading: false,
 };

@@ -1,5 +1,6 @@
 import { Button } from './Button';
 import { ReactComponent as InfoIcon } from "../../assets/info.svg";
+import { ReactComponent as CheckIcon } from "../../assets/check.svg";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -86,5 +87,18 @@ export const TextButton = {
     variant: 'primary',
     textButton: true,
     iconButton: false,
+  },
+};
+
+export const ProgressButton = {
+  args: {
+    label: 'Default',
+    variant: 'primary',
+    iconButton: false,
+    buttonWithLoader: true,
+    loaderLabel: "Progressing",
+    completedLabel: "Complete",
+    completedIcon: <CheckIcon />,
+    isLoading: true
   },
 };
