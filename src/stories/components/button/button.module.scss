@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:ital,wght@0,400;1,400&display=swap");
 
 // Base Styles for Button Component
+body {
+    font-family: "Nunito", sans-serif;
+}
+
 .baseStyles {
     // Layout
     display: inline-flex;
@@ -9,7 +13,6 @@
     gap: 10px;
 
     // Typography
-    font-family: "Nunito", sans-serif;
     font-weight: 600;
     line-height: 20px;
     letter-spacing: 0.48px;
@@ -28,6 +31,11 @@
         height: 20px;
         width: 20px;
         border-radius: 5px;
+
+        .iconSvg {
+            width: 16px;
+            height: 16px;
+        }
     }
 
     &.sm {
@@ -42,6 +50,11 @@
         height: 26px;
         width: 26px;
         border-radius: 5px;
+
+        .iconSvg {
+            width: 16px;
+            height: 16px;
+        }
     }
 
     &.md {
@@ -56,6 +69,11 @@
         height: 32px;
         width: 32px;
         border-radius: 6px;
+
+        .iconSvg {
+            width: 16px;
+            height: 16px;
+        }
     }
 
     &.lg {
@@ -70,6 +88,11 @@
         height: 38px;
         width: 38px;
         border-radius: 7px;
+
+        .iconSvg {
+            width: 16px;
+            height: 16px;
+        }
     }
 
     // Icon styles
@@ -142,4 +165,60 @@
     &.iconButton {
         min-width: 0px;
     }
+}
+
+.textButtonBaseStyles {
+    // Layout
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    // Visual
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    /* Text color of a typical link */
+    cursor: pointer;
+    // Typography
+    color: var(--cta-blue-1-default, #007CC1);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    /* 125% */
+    letter-spacing: 0.144px;
+
+    &:hover {
+        text-decoration: underline;
+        color: var(--cta-blue-2-hover-state, #00669E);
+        letter-spacing: -0.016px;
+    }
+
+    &:active {
+        text-decoration: underline;
+        color: var(--cta-blue-3-pressed, #005483);
+        letter-spacing: -0.016px;
+    }
+
+    &:disabled {
+        text-decoration: none;
+        color: rgba(0, 124, 193, 0.50);
+        letter-spacing: -0.016px;
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            path {
+                fill: currentColor;
+            }
+        }
+    }
+}
+
+.textButtonUnderlined {
+    text-decoration: underline;
 }

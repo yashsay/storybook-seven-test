@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styles from "./button.module.scss";
 
@@ -16,28 +16,42 @@ export const Button = ({
   iconPosition,
   iconButton,
   textButton,
+  textButtonUnderlined,
   children,
   ...props
 }) => {
+  console.log("Element::", document.getElementsByClassName("iconSvg"));
   return (
     <button
       type="button"
       disabled={disabled}
-      className={`${styles.baseStyles} ${styles[variant]} ${
-        iconButton ? styles[`${size}IconButton`] : styles[size]
-      }`}
+      className={
+        textButton
+          ? `${styles.textButtonBaseStyles} ${
+              textButtonUnderlined && styles.textButtonUnderlined
+            }`
+          : `${styles.baseStyles} ${styles[variant]} ${
+              iconButton ? styles[`${size}IconButton`] : styles[size]
+            }`
+      }
       {...props}
     >
       {!iconButton && icon && iconPosition === "left" && (
-        <span className={styles.icon}>{icon}</span>
+        <span className={styles.icon}>
+          {React.cloneElement(icon, { className: "iconSvg" })}
+        </span>
       )}
       {iconButton ? (
-        <span className={styles.icon}>{icon}</span>
+        <span className={styles.icon}>
+          {React.cloneElement(icon, { className: "iconSvg" })}
+        </span>
       ) : (
         children || label
       )}
       {!iconButton && icon && iconPosition === "right" && (
-        <span className={styles.icon}>{icon}</span>
+        <span className={styles.icon}>
+          {React.cloneElement(icon, { className: "iconSvg" })}
+        </span>
       )}
     </button>
   );
@@ -79,6 +93,10 @@ Button.propTypes = {
    */
   textButton: PropTypes.bool,
   /**
+   * If Text Button should have a underline, "textButtonUnderlined" Parameter should be set to true else false.
+   */
+  textButtonUnderlined: PropTypes.bool,
+  /**
    * Children can be used to provide custom content.
    */
   children: PropTypes.node,
@@ -89,9 +107,10 @@ Button.defaultProps = {
   variant: "primary",
   size: "sm",
   disabled: false,
-  icon: null,
-  // icon: <InfoIcon />,
+  // icon: null,
+  icon: <InfoIcon />,
   iconPosition: "left",
   iconButton: false,
   textButton: false,
+  textButtonUnderlined: false,
 };
